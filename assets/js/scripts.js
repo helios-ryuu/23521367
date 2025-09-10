@@ -313,23 +313,26 @@ const lazyLoadGallery = () => {
                     
                     // Get image path from background-image style
                     const style = item.getAttribute('style');
-                    const imagePath = style ? style.match(/url\(['"]?(.*?)['"]?\)/)?.[1] : null;
+                    const imageMatch = style ? style.match(/url\(['"]?(.*?)['"]?\)/) : null;
+                    const imagePath = imageMatch ? imageMatch[1] : null;
                     
                     // Add click event after loading
                     item.addEventListener('click', (e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        openLightbox(
-                            item.dataset.title, 
-                            item.dataset.description, 
-                            imagePath,
-                            {
-                                place: item.dataset.place,
-                                time: item.dataset.time,
-                                content: item.dataset.content,
-                                category: item.dataset.category
-                            }
-                        );
+                        
+                        // Ensure all data attributes exist and are not undefined
+                        const safeMetadata = {
+                            place: (item.dataset.place && item.dataset.place !== 'undefined') ? item.dataset.place : 'Unknown',
+                            time: (item.dataset.time && item.dataset.time !== 'undefined') ? item.dataset.time : 'Unknown',
+                            content: (item.dataset.content && item.dataset.content !== 'undefined') ? item.dataset.content : 'Unknown',
+                            category: (item.dataset.category && item.dataset.category !== 'undefined') ? item.dataset.category : 'Unknown'
+                        };
+                        
+                        const safeTitle = (item.dataset.title && item.dataset.title !== 'undefined') ? item.dataset.title : 'Gallery Item';
+                        const safeDescription = (item.dataset.description && item.dataset.description !== 'undefined') ? item.dataset.description : 'No description available';
+                        
+                        openLightbox(safeTitle, safeDescription, imagePath, safeMetadata);
                     });
                     
                     observer.unobserve(item);
@@ -353,32 +356,58 @@ function openLightbox(title, description, imagePath, metadata = {}) {
     const lightboxDescription = document.getElementById('lightbox-description');
     const lightboxImage = document.getElementById('lightbox-image');
     
+    // Check if all required elements exist
+    if (!lightbox || !lightboxTitle || !lightboxDescription || !lightboxImage) {
+        console.error('Lightbox elements not found');
+        return;
+    }
+    
     // Update metadata elements
     const lightboxPlace = document.getElementById('lightbox-place');
     const lightboxTime = document.getElementById('lightbox-time');
-    const lightboxContent = document.getElementById('lightbox-content');
+    const lightboxContent = document.getElementById('lightbox-content-meta');
     const lightboxCategory = document.getElementById('lightbox-category');
     
     lightboxTitle.textContent = title;
     lightboxDescription.textContent = description;
     
     // Update metadata with provided data or defaults
-    if (lightboxPlace) lightboxPlace.textContent = metadata.place || 'Unknown';
-    if (lightboxTime) lightboxTime.textContent = metadata.time || 'Unknown';
-    if (lightboxContent) lightboxContent.textContent = metadata.content || 'Unknown';
-    if (lightboxCategory) lightboxCategory.textContent = metadata.category || 'Unknown';
+    if (lightboxPlace) {
+        lightboxPlace.textContent = (metadata.place && metadata.place !== 'undefined') ? metadata.place : 'Unknown';
+    }
+    if (lightboxTime) {
+        lightboxTime.textContent = (metadata.time && metadata.time !== 'undefined') ? metadata.time : 'Unknown';
+    }
+    if (lightboxContent) {
+        lightboxContent.textContent = (metadata.content && metadata.content !== 'undefined') ? metadata.content : 'Unknown';
+    }
+    if (lightboxCategory) {
+        lightboxCategory.textContent = (metadata.category && metadata.category !== 'undefined') ? metadata.category : 'Unknown';
+    }
     
     // Display actual image instead of emoji
-    if (imagePath) {
-        lightboxImage.style.backgroundImage = `url(${imagePath})`;
+    if (imagePath && imagePath !== 'undefined' && imagePath.trim() !== '') {
+        // Clean up the image path for deployment
+        const cleanPath = imagePath.startsWith('./') ? imagePath : `./${imagePath}`;
+        lightboxImage.style.backgroundImage = `url(${cleanPath})`;
         lightboxImage.style.backgroundSize = 'cover';
         lightboxImage.style.backgroundPosition = 'center';
         lightboxImage.style.backgroundRepeat = 'no-repeat';
         lightboxImage.textContent = ''; // Remove any text content
+        
+        // Add error handling for failed image loads
+        const testImg = new Image();
+        testImg.onerror = function() {
+            lightboxImage.style.backgroundImage = 'none';
+            lightboxImage.textContent = '🖼️';
+            lightboxImage.style.backgroundColor = 'var(--gradient-2)';
+        };
+        testImg.src = cleanPath;
     } else {
         // Fallback if no image path
         lightboxImage.style.backgroundImage = 'none';
         lightboxImage.textContent = '🖼️';
+        lightboxImage.style.backgroundColor = 'var(--gradient-2)';
     }
     
     // Store current scroll position BEFORE any changes
