@@ -2,10 +2,689 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <title>Ngo Tien Sy - Portfolio</title>
+    <meta name="description" content="Ngo Tien Sy Professional portfolio showcasing projects, experience, and skills">
+    <meta name="keywords" content="portfolio, developer, designer, projects, experience">
+    <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
-    <h1>Hello, world!</h1>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">Portfolio</div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#hobbies" class="nav-link">Hobbies</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#books" class="nav-link">Books</a></li>
+                <li><a href="#certificates" class="nav-link">Certificates</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                    🌙
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="section hero" id="home">
+            <div class="container">
+                <div class="hero-frame">
+                    <div class="hero-info">
+                    <div class="hero-avatar" aria-label="Profile Avatar">
+                        🧑‍💻
+                    </div>
+                    <h1>Ngo Tien Sy</h1>
+                    <p class="hero-subtitle">Full Stack Developer & UI/UX Designer</p>
+                    <p class="hero-bio">
+                        Passionate about creating innovative digital solutions that make a difference. I specialize in building user-centric applications with modern technologies and clean, efficient code.
+                    </p>
+                    <div class="contact-info">
+                        <a href="mailto:ngotiensy2005@gmail.com" class="contact-item">
+                            📧 ngotiensy2005@gmail.com
+                        </a>
+                        <a href="tel:+84941866722" class="contact-item">
+                            📱 (+84) 941-866-722
+                        </a>
+                        <a href="#" class="contact-item">
+                            📍 Ho Chi Minh, Viet Nam
+                        </a>
+                        <a href="https://linkedin.com/in/helios-nts" class="contact-item">
+                            💼 LinkedIn Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section" id="projects">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Projects</h2>
+                    <p class="section-subtitle">
+                        A showcase of my recent work and creative solutions
+                    </p>
+                </div>
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <div class="project-image" role="img" aria-label="Project 1 Screenshot">
+                            🚀
+                        </div>
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <p class="project-description">
+                            A full-stack e-commerce solution built with React, Node.js, and MongoDB. 
+                            Features include user authentication, payment processing, and real-time inventory management.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                            <span class="tag">Stripe</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary">Live Demo</a>
+                            <a href="#" class="btn btn-secondary">GitHub</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-image" role="img" aria-label="Project 2 Screenshot">
+                            📱
+                        </div>
+                        <h3 class="project-title">Task Management App</h3>
+                        <p class="project-description">
+                            A collaborative task management application with real-time updates, 
+                            drag-and-drop functionality, and team collaboration features.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">Vuetify</span>
+                            <span class="tag">PWA</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary">Live Demo</a>
+                            <a href="#" class="btn btn-secondary">GitHub</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-image" role="img" aria-label="Project 3 Screenshot">
+                            🎨
+                        </div>
+                        <h3 class="project-title">Weather Dashboard</h3>
+                        <p class="project-description">
+                            A responsive weather application with interactive maps, detailed forecasts, 
+                            and location-based weather alerts. Features real-time data visualization and offline support.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Chart.js</span>
+                            <span class="tag">Weather API</span>
+                            <span class="tag">PWA</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary">Live Demo</a>
+                            <a href="#" class="btn btn-secondary">GitHub</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="section" id="experience">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Experience</h2>
+                    <p class="section-subtitle">
+                        My professional journey and key achievements
+                    </p>
+                </div>
+                <div class="experience-timeline">
+                    <article class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-title">Senior Full Stack Developer</h3>
+                                <p class="experience-company">TechCorp Solutions</p>
+                            </div>
+                            <span class="experience-period">2022 - Present</span>
+                        </div>
+                        <p class="experience-description">
+                            Led a team of 5 developers in building scalable web applications. 
+                            Implemented microservices architecture, improved application performance by 40%, 
+                            and mentored junior developers in best practices.
+                        </p>
+                    </article>
+
+                    <article class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-title">Frontend Developer</h3>
+                                <p class="experience-company">Creative Agency Inc.</p>
+                            </div>
+                            <span class="experience-period">2020 - 2022</span>
+                        </div>
+                        <p class="experience-description">
+                            Developed responsive web applications using React and Vue.js. 
+                            Collaborated with design teams to create pixel-perfect implementations 
+                            and optimized user experiences across multiple devices.
+                        </p>
+                    </article>
+
+                    <article class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-title">Junior Web Developer</h3>
+                                <p class="experience-company">StartupXYZ</p>
+                            </div>
+                            <span class="experience-period">2019 - 2020</span>
+                        </div>
+                        <p class="experience-description">
+                            Built and maintained company websites using HTML, CSS, and JavaScript. 
+                            Gained experience with version control, agile methodologies, 
+                            and collaborative development workflows.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hobbies Section -->
+        <section class="section" id="hobbies">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Hobbies</h2>
+                    <p class="section-subtitle">
+                        What I enjoy doing in my free time
+                    </p>
+                </div>
+                <div class="hobbies-grid">
+                    <div class="hobby-card">
+                        <div class="hobby-icon" role="img" aria-label="Photography">📷</div>
+                        <h3 class="hobby-title">Photography</h3>
+                        <p class="hobby-description">Capturing moments and exploring creative composition</p>
+                    </div>
+                    <div class="hobby-card">
+                        <div class="hobby-icon" role="img" aria-label="Gaming">🎮</div>
+                        <h3 class="hobby-title">Gaming</h3>
+                        <p class="hobby-description">Strategy games and indie titles for relaxation</p>
+                    </div>
+                    <div class="hobby-card">
+                        <div class="hobby-icon" role="img" aria-label="Cooking">🍳</div>
+                        <h3 class="hobby-title">Cooking</h3>
+                        <p class="hobby-description">Experimenting with flavors from different cultures</p>
+                    </div>
+                    <div class="hobby-card">
+                        <div class="hobby-icon" role="img" aria-label="Reading">📚</div>
+                        <h3 class="hobby-title">Reading</h3>
+                        <p class="hobby-description">Tech books, sci-fi novels, and personal development</p>
+                    </div>
+                    <div class="hobby-card">
+                        <div class="hobby-icon" role="img" aria-label="Hiking">🥾</div>
+                        <h3 class="hobby-title">Hiking</h3>
+                        <p class="hobby-description">Exploring nature trails and outdoor adventures</p>
+                    </div>
+                    <div class="hobby-card">
+                        <div class="hobby-icon" role="img" aria-label="Music">🎵</div>
+                        <h3 class="hobby-title">Music</h3>
+                        <p class="hobby-description">Playing guitar and discovering new artists</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section" id="skills">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Skills & Strengths</h2>
+                    <p class="section-subtitle">
+                        Technical expertise and core competencies
+                    </p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>💻 Frontend Development</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">JavaScript</span>
+                            <span class="skill-item">TypeScript</span>
+                            <span class="skill-item">React</span>
+                            <span class="skill-item">Vue.js</span>
+                            <span class="skill-item">HTML5</span>
+                            <span class="skill-item">CSS3</span>
+                            <span class="skill-item">Sass</span>
+                            <span class="skill-item">Tailwind CSS</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span class="progress-name">JavaScript/TypeScript</span>
+                                    <span class="progress-level">Expert</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="95"></div>
+                                </div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span class="progress-name">React/Vue.js</span>
+                                    <span class="progress-level">Advanced</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="90"></div>
+                                </div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span class="progress-name">CSS/Sass</span>
+                                    <span class="progress-level">Expert</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="92"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>⚙️ Backend Development</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Node.js</span>
+                            <span class="skill-item">Python</span>
+                            <span class="skill-item">Express.js</span>
+                            <span class="skill-item">MongoDB</span>
+                            <span class="skill-item">PostgreSQL</span>
+                            <span class="skill-item">REST APIs</span>
+                            <span class="skill-item">GraphQL</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span class="progress-name">Node.js/Express</span>
+                                    <span class="progress-level">Advanced</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="85"></div>
+                                </div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span class="progress-name">Database Design</span>
+                                    <span class="progress-level">Advanced</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="88"></div>
+                                </div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span class="progress-name">API Development</span>
+                                    <span class="progress-level">Expert</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="90"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🛠️ Tools & Technologies</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Git</span>
+                            <span class="skill-item">Docker</span>
+                            <span class="skill-item">AWS</span>
+                            <span class="skill-item">Webpack</span>
+                            <span class="skill-item">Jest</span>
+                            <span class="skill-item">Figma</span>
+                            <span class="skill-item">Photoshop</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span class="progress-name">Git/Version Control</span>
+                                    <span class="progress-level">Expert</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="95"></div>
+                                </div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span class="progress-name">Cloud Platforms</span>
+                                    <span class="progress-level">Intermediate</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="75"></div>
+                                </div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span class="progress-name">UI/UX Design</span>
+                                    <span class="progress-level">Advanced</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="82"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🎯 Core Strengths</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Problem Solving</span>
+                            <span class="skill-item">Team Leadership</span>
+                            <span class="skill-item">Communication</span>
+                            <span class="skill-item">Project Management</span>
+                            <span class="skill-item">Creative Thinking</span>
+                            <span class="skill-item">Adaptability</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span class="progress-name">Problem Solving</span>
+                                    <span class="progress-level">Master</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="98"></div>
+                                </div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span class="progress-name">Team Leadership</span>
+                                    <span class="progress-level">Advanced</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="87"></div>
+                                </div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span class="progress-name">Communication</span>
+                                    <span class="progress-level">Expert</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="93"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Favorite Books Section -->
+        <section class="section" id="books">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Favorite Books</h2>
+                    <p class="section-subtitle">
+                        Books that have shaped my thinking and inspired my journey
+                    </p>
+                </div>
+                <div class="books-grid">
+                    <article class="book-card">
+                        <div class="book-cover" style="background-image: url('./assets/img/clean-code.jpg'); background-size: cover; background-position: center; color: transparent;"></div>
+                        <h3 class="book-title">Clean Code</h3>
+                        <p class="book-author">by Robert C. Martin</p>
+                        <div class="book-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="book-comment">
+                            "A masterpiece that transformed how I write code. Every developer should read this - it's not just about syntax, it's about craftsmanship."
+                        </p>
+                    </article>
+
+                    <article class="book-card">
+                        <div class="book-cover" style="background-image: url('./assets/img/thinking-fast-and-slow.png'); background-size: cover; background-position: center; color: transparent;"></div>
+                        <h3 class="book-title">Thinking, Fast and Slow</h3>
+                        <p class="book-author">by Daniel Kahneman</p>
+                        <div class="book-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="book-comment">
+                            "Incredible insights into how our minds work. This book changed how I approach problem-solving and decision-making in both life and coding."
+                        </p>
+                    </article>
+
+                    <article class="book-card">
+                        <div class="book-cover" style="background-image: url('./assets/img/the-lean-startup.jpg'); background-size: cover; background-position: center; color: transparent;"></div>
+                        <h3 class="book-title">The Lean Startup</h3>
+                        <p class="book-author">by Eric Ries</p>
+                        <div class="book-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">☆</span>
+                        </div>
+                        <p class="book-comment">
+                            "Essential reading for anyone building products. The MVP concept and build-measure-learn cycle have been game-changers in my development approach."
+                        </p>
+                    </article>
+
+                    <article class="book-card">
+                        <div class="book-cover" style="background-image: url('./assets/img/design-patterns.jpg'); background-size: cover; background-position: center; color: transparent;"></div>
+                        <h3 class="book-title">Design Patterns</h3>
+                        <p class="book-author">by Gang of Four</p>
+                        <div class="book-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="book-comment">
+                            "The bible of software architecture. Dense but incredibly valuable - these patterns appear everywhere in modern frameworks and libraries."
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates Section -->
+        <section class="section" id="certificates">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Certificates</h2>
+                    <p class="section-subtitle">
+                        Professional certifications and achievements
+                    </p>
+                </div>
+                <div class="certificates-grid">
+
+                    <article class="certificate-card">
+                        <h3 class="certificate-title">Google IT Support Certificate</h3>
+                        <p class="certificate-issuer">Google (via Coursera)</p>
+                        <p class="certificate-date">Issued: June 2025</p>
+                        <p class="certificate-description">
+                            Comprehensive training in IT support fundamentals, including troubleshooting, 
+                            customer service, networking, operating systems, and system administration.
+                        </p>
+                        <div class="certificate-id" id="cert-id-2">
+                            PAZNUZ2WFM4R
+                        </div>
+                        <div class="certificate-actions">
+                            <button class="reveal-id-btn" onclick="toggleCertificateId('cert-id-2', this)">
+                                🔐 Reveal ID
+                            </button>
+                            <a href="https://www.coursera.org/account/accomplishments/certificate/PAZNUZ2WFM4R" class="btn btn-secondary">View Certificate</a>
+                        </div>
+                    </article>
+
+                    <article class="certificate-card">
+                        <h3 class="certificate-title">Google Project Management Certificate</h3>
+                        <p class="certificate-issuer">Google (via Coursera)</p>
+                        <p class="certificate-date">Issued: June 2025</p>
+                        <p class="certificate-description">
+                            Comprehensive training in project management principles, including Agile methodologies, 
+                            team collaboration, and effective communication strategies.
+                        </p>
+                        <div class="certificate-id" id="cert-id-3">
+                            326Q4B8C4873
+                        </div>
+                        <div class="certificate-actions">
+                            <button class="reveal-id-btn" onclick="toggleCertificateId('cert-id-3', this)">
+                                🔐 Reveal ID
+                            </button>
+                            <a href="https://www.coursera.org/account/accomplishments/certificate/326Q4B8C4873" class="btn btn-secondary">View Certificate</a>
+                        </div>
+                    </article>
+
+                    <article class="certificate-card">
+                        <h3 class="certificate-title">Sololearn JavaScript Intermediate Certification</h3>
+                        <p class="certificate-issuer">Sololearn</p>
+                        <p class="certificate-date">Issued: November 2023</p>
+                        <p class="certificate-description">
+                            Certified in JavaScript programming concepts, including ES6 features, asynchronous programming, 
+                            and DOM manipulation.
+                        </p>
+                        <div class="certificate-id" id="cert-id-4">
+                            CC-5IAOVOTE
+                        </div>
+                        <div class="certificate-actions">
+                            <button class="reveal-id-btn" onclick="toggleCertificateId('cert-id-4', this)">
+                                🔐 Reveal ID
+                            </button>
+                            <a href="https://www.sololearn.com/certificates/CC-5IAOVOTE" class="btn btn-secondary">View Certificate</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Memory Gallery Section -->
+        <section class="section" id="gallery">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Memory Gallery</h2>
+                    <p class="section-subtitle">
+                        Moments, experiences, and memories that inspire my journey
+                    </p>
+                </div>
+                <div class="gallery-grid" id="galleryGrid">
+                    <div class="gallery-item lazy" data-title="Travel Adventures" data-description="Exploring new cultures and places broadens perspective and fuels creativity." data-emoji="🏔️">
+                        <div class="gallery-loading"></div>
+                        <div class="gallery-overlay">
+                            <div>Travel Adventures</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item lazy" data-title="Team Building" data-description="Great projects are built by great teams. These moments capture the collaboration spirit." data-emoji="👥">
+                        <div class="gallery-loading"></div>
+                        <div class="gallery-overlay">
+                            <div>Team Building</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item lazy" data-title="Conference Talks" data-description="Sharing knowledge and learning from the community at tech conferences and meetups." data-emoji="🎤">
+                        <div class="gallery-loading"></div>
+                        <div class="gallery-overlay">
+                            <div>Conference Talks</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item lazy" data-title="Coding Sessions" data-description="Late-night coding sessions, breakthrough moments, and the joy of solving complex problems." data-emoji="💻">
+                        <div class="gallery-loading"></div>
+                        <div class="gallery-overlay">
+                            <div>Coding Sessions</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item lazy" data-title="Nature Escapes" data-description="Finding balance and inspiration in nature. These moments recharge my creative energy." data-emoji="🌲">
+                        <div class="gallery-loading"></div>
+                        <div class="gallery-overlay">
+                            <div>Nature Escapes</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item lazy" data-title="Learning Moments" data-description="Workshops, courses, and mentoring sessions that shaped my professional growth." data-emoji="📖">
+                        <div class="gallery-loading"></div>
+                        <div class="gallery-overlay">
+                            <div>Learning Moments</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item lazy" data-title="Creative Projects" data-description="Side projects and experiments that push boundaries and explore new technologies." data-emoji="🎨">
+                        <div class="gallery-loading"></div>
+                        <div class="gallery-overlay">
+                            <div>Creative Projects</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item lazy" data-title="Achievement Milestones" data-description="Celebrating successes, launches, and important milestones in my career journey." data-emoji="🏆">
+                        <div class="gallery-loading"></div>
+                        <div class="gallery-overlay">
+                            <div>Achievement Milestones</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox Modal -->
+        <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+            <div class="lightbox-content" onclick="event.stopPropagation()">
+                <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+                <div class="lightbox-image" id="lightbox-image">🏔️</div>
+                <h3 class="lightbox-title" id="lightbox-title">Memory Title</h3>
+                <p class="lightbox-description" id="lightbox-description">Memory description goes here.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="mailto:ngotiensy2005@gmail.com" class="social-link" aria-label="Email">
+                    <span>📧</span>
+                    <span class="social-link-text">Email</span>
+                </a>
+                <a href="https://github.com/helios-ryuu" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                    <span>💻</span>
+                    <span class="social-link-text">GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/helios-nts/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                    <span>💼</span>
+                    <span class="social-link-text">LinkedIn</span>
+                </a>
+                <a href="https://x.com/helios_ryuu" class="social-link" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer">
+                    <span>🐦</span>
+                    <span class="social-link-text">X (Twitter)</span>
+                </a>
+            </div>
+            <p class="footer-text">
+                © 2025 Your Name. Designed & Built with ❤️
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+        <span style="font-size: 1.5rem;">↑</span>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="./assets/js/scripts.js"></script>
 </body>
 </html>
