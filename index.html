@@ -589,49 +589,49 @@
                     </p>
                 </div>
                 <div class="gallery-grid" id="galleryGrid">
-                    <div class="gallery-item lazy" data-title="Travel Adventures" data-description="Exploring new cultures and places broadens perspective and fuels creativity." data-emoji="🏔️">
+                    <div class="gallery-item lazy" data-title="Travel Adventures" data-description="Exploring new cultures and places broadens perspective and fuels creativity." data-place="Bougainvillea Hill" data-time="07/2025" data-content="Scenic nature photography" data-category="Travel & Adventure" style="background-image: url('./assets/img/travel-adventures.jpg'); background-size: cover; background-position: center;">
                         <div class="gallery-loading"></div>
                         <div class="gallery-overlay">
                             <div>Travel Adventures</div>
                         </div>
                     </div>
-                    <div class="gallery-item lazy" data-title="Team Building" data-description="Great projects are built by great teams. These moments capture the collaboration spirit." data-emoji="👥">
+                    <div class="gallery-item lazy" data-title="Team Building" data-description="Great projects are built by great teams. These moments capture the collaboration spirit." data-place="Office & Remote" data-time="02/2025" data-content="Team collaboration and project meetings" data-category="Professional" style="background-image: url('./assets/img/team-building.jpg'); background-size: cover; background-position: center;">
                         <div class="gallery-loading"></div>
                         <div class="gallery-overlay">
                             <div>Team Building</div>
                         </div>
                     </div>
-                    <div class="gallery-item lazy" data-title="Conference Talks" data-description="Sharing knowledge and learning from the community at tech conferences and meetups." data-emoji="🎤">
+                    <div class="gallery-item lazy" data-title="Favorite Dishes" data-description="Exploring culinary delights and sharing favorite recipes." data-place="Home & Restaurants" data-time="2025" data-content="Food photography and culinary experiences" data-category="Culinary" style="background-image: url('./assets/img/favorite-dishes.jpg'); background-size: cover; background-position: center;">
                         <div class="gallery-loading"></div>
                         <div class="gallery-overlay">
-                            <div>Conference Talks</div>
+                            <div>Favorite Dishes</div>
                         </div>
                     </div>
-                    <div class="gallery-item lazy" data-title="Coding Sessions" data-description="Late-night coding sessions, breakthrough moments, and the joy of solving complex problems." data-emoji="💻">
+                    <div class="gallery-item lazy" data-title="Coding Sessions" data-description="Late-night coding sessions, breakthrough moments, and the joy of solving complex problems." data-place="Home Office" data-time="02/2025" data-content="Development workspace and coding setup" data-category="Technology" style="background-image: url('./assets/img/coding-sessions.jpg'); background-size: cover; background-position: center;">
                         <div class="gallery-loading"></div>
                         <div class="gallery-overlay">
                             <div>Coding Sessions</div>
                         </div>
                     </div>
-                    <div class="gallery-item lazy" data-title="Nature Escapes" data-description="Finding balance and inspiration in nature. These moments recharge my creative energy." data-emoji="🌲">
+                    <div class="gallery-item lazy" data-title="Nature Escapes" data-description="Finding balance and inspiration in nature. These moments recharge my creative energy." data-place="Parks & Natural Areas" data-time="08/2024" data-content="Nature photography and outdoor relaxation" data-category="Nature & Wellness" style="background-image: url('./assets/img/nature-escapes.jpg'); background-size: cover; background-position: center;">
                         <div class="gallery-loading"></div>
                         <div class="gallery-overlay">
                             <div>Nature Escapes</div>
                         </div>
                     </div>
-                    <div class="gallery-item lazy" data-title="Learning Moments" data-description="Workshops, courses, and mentoring sessions that shaped my professional growth." data-emoji="📖">
+                    <div class="gallery-item lazy" data-title="Learning Moments" data-description="Workshops, courses, and mentoring sessions that shaped my professional growth." data-place="Online & In-person" data-time="03/2025" data-content="Educational workshops and skill development" data-category="Education" style="background-image: url('./assets/img/learning-moments.jpg'); background-size: cover; background-position: center;">
                         <div class="gallery-loading"></div>
                         <div class="gallery-overlay">
                             <div>Learning Moments</div>
                         </div>
                     </div>
-                    <div class="gallery-item lazy" data-title="Creative Projects" data-description="Side projects and experiments that push boundaries and explore new technologies." data-emoji="🎨">
+                    <div class="gallery-item lazy" data-title="Creative Projects" data-description="Side projects and experiments that push boundaries and explore new technologies." data-place="Creative Workspace" data-time="06/2025" data-content="Personal projects and creative experiments" data-category="Creative" style="background-image: url('./assets/img/creative-projects.jpg'); background-size: cover; background-position: center;">
                         <div class="gallery-loading"></div>
                         <div class="gallery-overlay">
                             <div>Creative Projects</div>
                         </div>
                     </div>
-                    <div class="gallery-item lazy" data-title="Achievement Milestones" data-description="Celebrating successes, launches, and important milestones in my career journey." data-emoji="🏆">
+                    <div class="gallery-item lazy" data-title="Achievement Milestones" data-description="Celebrating successes, launches, and important milestones in my career journey." data-place="Various Venues" data-time="10/2024" data-content="Career milestones and achievements celebration" data-category="Professional Achievements" style="background-image: url('./assets/img/achievement-milestones.jpg'); background-size: cover; background-position: center;">
                         <div class="gallery-loading"></div>
                         <div class="gallery-overlay">
                             <div>Achievement Milestones</div>
@@ -645,9 +645,29 @@
         <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
             <div class="lightbox-content" onclick="event.stopPropagation()">
                 <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-                <div class="lightbox-image" id="lightbox-image">🏔️</div>
+                <div class="lightbox-image" id="lightbox-image"></div>
                 <h3 class="lightbox-title" id="lightbox-title">Memory Title</h3>
                 <p class="lightbox-description" id="lightbox-description">Memory description goes here.</p>
+                <div class="lightbox-metadata" id="lightbox-metadata">
+                    <div class="metadata-grid">
+                        <div class="metadata-item">
+                            <span class="metadata-label">📍 Place:</span>
+                            <span class="metadata-value" id="lightbox-place">Unknown</span>
+                        </div>
+                        <div class="metadata-item">
+                            <span class="metadata-label">⏰ Time:</span>
+                            <span class="metadata-value" id="lightbox-time">Unknown</span>
+                        </div>
+                        <div class="metadata-item">
+                            <span class="metadata-label">📝 Content:</span>
+                            <span class="metadata-value" id="lightbox-content">Unknown</span>
+                        </div>
+                        <div class="metadata-item">
+                            <span class="metadata-label">🏷️ Category:</span>
+                            <span class="metadata-value" id="lightbox-category">Unknown</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -674,7 +694,7 @@
                 </a>
             </div>
             <p class="footer-text">
-                © 2025 Your Name. Designed & Built with ❤️
+                © 2025 Ngo Tien Sy. Designed & Built with ❤️
             </p>
         </div>
     </footer>

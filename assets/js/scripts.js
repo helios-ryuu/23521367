@@ -296,7 +296,7 @@ function toggleCertificateId(certId, button) {
     }
 }
 
-// Lazy Loading for Gallery
+// Lazy Loading for Gallery - Updated to work with background images
 const lazyLoadGallery = () => {
     const galleryItems = document.querySelectorAll('.gallery-item.lazy');
     const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -305,26 +305,35 @@ const lazyLoadGallery = () => {
                 const item = entry.target;
                 const loading = item.querySelector('.gallery-loading');
                 
-                // Simulate loading time for demo
+                // Remove loading indicator and add loaded class
                 setTimeout(() => {
-                    const emoji = item.dataset.emoji;
-                    item.textContent = '';
-                    item.innerHTML = `
-                        ${emoji}
-                        <div class="gallery-overlay">
-                            <div>${item.dataset.title}</div>
-                        </div>
-                    `;
+                    if (loading) loading.remove();
                     item.classList.remove('lazy');
                     item.classList.add('lazy-loaded');
                     
+                    // Get image path from background-image style
+                    const style = item.getAttribute('style');
+                    const imagePath = style ? style.match(/url\(['"]?(.*?)['"]?\)/)?.[1] : null;
+                    
                     // Add click event after loading
-                    item.addEventListener('click', () => {
-                        openLightbox(item.dataset.title, item.dataset.description, item.dataset.emoji);
+                    item.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        openLightbox(
+                            item.dataset.title, 
+                            item.dataset.description, 
+                            imagePath,
+                            {
+                                place: item.dataset.place,
+                                time: item.dataset.time,
+                                content: item.dataset.content,
+                                category: item.dataset.category
+                            }
+                        );
                     });
                     
                     observer.unobserve(item);
-                }, Math.random() * 1000 + 500); // Random delay between 500-1500ms
+                }, Math.random() * 500 + 300); // Random delay between 300-800ms
             }
         });
     }, {
@@ -337,19 +346,58 @@ const lazyLoadGallery = () => {
 // Initialize lazy loading
 lazyLoadGallery();
 
-// Lightbox Functionality
-function openLightbox(title, description, emoji) {
+// Lightbox Functionality - Updated to display actual images and metadata
+function openLightbox(title, description, imagePath, metadata = {}) {
     const lightbox = document.getElementById('lightbox');
     const lightboxTitle = document.getElementById('lightbox-title');
     const lightboxDescription = document.getElementById('lightbox-description');
     const lightboxImage = document.getElementById('lightbox-image');
     
+    // Update metadata elements
+    const lightboxPlace = document.getElementById('lightbox-place');
+    const lightboxTime = document.getElementById('lightbox-time');
+    const lightboxContent = document.getElementById('lightbox-content');
+    const lightboxCategory = document.getElementById('lightbox-category');
+    
     lightboxTitle.textContent = title;
     lightboxDescription.textContent = description;
-    lightboxImage.textContent = emoji;
     
-    lightbox.classList.add('active');
+    // Update metadata with provided data or defaults
+    if (lightboxPlace) lightboxPlace.textContent = metadata.place || 'Unknown';
+    if (lightboxTime) lightboxTime.textContent = metadata.time || 'Unknown';
+    if (lightboxContent) lightboxContent.textContent = metadata.content || 'Unknown';
+    if (lightboxCategory) lightboxCategory.textContent = metadata.category || 'Unknown';
+    
+    // Display actual image instead of emoji
+    if (imagePath) {
+        lightboxImage.style.backgroundImage = `url(${imagePath})`;
+        lightboxImage.style.backgroundSize = 'cover';
+        lightboxImage.style.backgroundPosition = 'center';
+        lightboxImage.style.backgroundRepeat = 'no-repeat';
+        lightboxImage.textContent = ''; // Remove any text content
+    } else {
+        // Fallback if no image path
+        lightboxImage.style.backgroundImage = 'none';
+        lightboxImage.textContent = '🖼️';
+    }
+    
+    // Store current scroll position BEFORE any changes
+    const scrollY = window.scrollY;
+    lightbox.dataset.scrollY = scrollY;
+    
+    // Prevent body scrolling with multiple methods for better mobile support
+    document.body.classList.add('lightbox-active');
     document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    
+    // Additional mobile scroll prevention - set position after storing scroll
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+    document.body.style.left = '0';
+    
+    // Show lightbox
+    lightbox.classList.add('active');
 }
 
 function closeLightbox(event) {
@@ -358,14 +406,56 @@ function closeLightbox(event) {
     }
     
     const lightbox = document.getElementById('lightbox');
+    
+    // Get stored scroll position
+    const scrollY = lightbox.dataset.scrollY || '0';
+    
+    // Hide lightbox first
     lightbox.classList.remove('active');
-    document.body.style.overflow = 'auto';
+    
+    // Restore body scrolling
+    document.body.classList.remove('lightbox-active');
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    document.body.style.left = '';
+    
+    // Restore scroll position immediately
+    if (scrollY && scrollY !== '0') {
+        window.scrollTo({
+            top: parseInt(scrollY),
+            left: 0,
+            behavior: 'instant'
+        });
+    }
 }
 
 // Close lightbox with escape key
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeLightbox();
+    }
+});
+
+// Prevent touch scrolling on lightbox background
+document.addEventListener('DOMContentLoaded', function() {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        lightbox.addEventListener('touchmove', function(e) {
+            // Only prevent if touching the background, not the content
+            if (e.target === lightbox) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        // Prevent zoom on double tap
+        lightbox.addEventListener('touchend', function(e) {
+            if (e.target === lightbox) {
+                e.preventDefault();
+            }
+        });
     }
 });
 
